@@ -8,4 +8,4 @@ services:
     restart: always
     network_mode: bridge
     environment:
-      DB_HOST: '0.0.0.0'
+      DB_HOST: '84.201.145.117'
