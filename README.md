@@ -14,6 +14,8 @@ $ docker run -d \
     -e POSTGRES_DB=postgres \
     --name postgres \
     postgres
+
+## Don't forget to set DB_HOST env in docker-compose.yml
 $ docker-compose up -d
 ```
 Then:   
