@@ -7,3 +7,5 @@ services:
     container_name: virtual-manager
     restart: always
     network_mode: bridge
+    environment:
+      DB_HOST: '0.0.0.0'
