@@ -86,7 +86,7 @@ export default {
       axios({
         method: 'POST',
         headers: { Authorization: 'token', 'Content-Type': 'application/json' },
-        url: 'http://127.0.0.1:8080/api/new_vm',
+        url: `http://${window.location.hostname}:8080/api/new_vm`,
         data: payload
       }).then((response) => {
         setTimeout(() => {

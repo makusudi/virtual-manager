@@ -72,7 +72,7 @@ export default {
           Authorization: 'token',
           'Content-Type': 'application/json'
         },
-        url: 'http://127.0.0.1:8080/api/delete_vm',
+        url: `http://${window.location.hostname}:8080/api/delete_vm`,
         data: { name: this.vmObj.name }
       }).then((response) => {
         this.$message.success(`Virtual machine ${this.vmObj.name} has been successfully deleted from your scope`)

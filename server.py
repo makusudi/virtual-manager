@@ -31,4 +31,4 @@ app.add_routes(frontend_routes)
 for route in list(app.router.routes()):
     cors.add(route)
 
-web.run_app(app)
+web.run_app(app, host='0.0.0.0')
