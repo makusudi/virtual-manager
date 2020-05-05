@@ -1,18 +1,18 @@
 from aiohttp import web
 from aiohttp.web_response import Response
-# import aiohttp_cors
+import aiohttp_cors
 from api import api_routes
 
 
 app = web.Application()
 
-# cors = aiohttp_cors.setup(app, defaults={
-#     "*": aiohttp_cors.ResourceOptions(
-#             allow_credentials=True,
-#             expose_headers="*",
-#             allow_headers="*",
-#         )
-# })
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+        )
+})
 
 frontend_routes = web.RouteTableDef()
 
@@ -28,7 +28,7 @@ app.router.add_static('/_nuxt', path='dist/_nuxt')
 app.add_routes(api_routes)
 app.add_routes(frontend_routes)
 
-# for route in list(app.router.routes()):
-#     cors.add(route)
+for route in list(app.router.routes()):
+    cors.add(route)
 
 web.run_app(app)
