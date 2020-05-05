@@ -1,6 +1,8 @@
 FROM ubuntu:20.04
 COPY . /opt/virtual_manager
 WORKDIR /opt/virtual_manager
+ENV DB_HOST='84.201.145.117'
+RUN env | grep DB_HOST
 ENV TZ=Europe/Moscow
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get -y update
@@ -16,5 +18,6 @@ RUN npm install
 RUN npm run build
 RUN pip3 install -r requirements.txt
 RUN python3 models.py
+RUN env | grep DB_HOST
 EXPOSE 8080
 ENTRYPOINT ["python3", "server.py"]
