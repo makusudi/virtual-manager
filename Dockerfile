@@ -15,5 +15,6 @@ RUN npm install --save nuxt
 RUN npm install
 RUN npm run build
 RUN pip3 install -r requirements.txt
+RUN python3 models.py
 EXPOSE 8080
-ENTRYPOINT ["python3", "models.py", "&&", "python3", "server.py"]
+ENTRYPOINT ["python3", "server.py"]
