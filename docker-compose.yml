@@ -19,5 +19,4 @@ services:
     restart: always
     network_mode: bridge
     depends_on:
-      db:
-        condition: service_started
+      - postgres
