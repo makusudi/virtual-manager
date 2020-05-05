@@ -1,4 +1,4 @@
-# test_app
+# Virtual Manager
 
 Simple portfolio application for virtual machines administration (may be used like a wrapper over VMWare)
 
