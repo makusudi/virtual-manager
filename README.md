@@ -6,6 +6,14 @@ Simple portfolio application for virtual machines administration (may be used li
 
 Run:
 ```bash
+$ docker pull postgres
+$ docker run -d \
+    -p 5432:5432 \
+    -e POSTGRES_USER=postgres \
+    -e POSTGRES_PASSWORD=postgres \
+    -e POSTGRES_DB=postgres \
+    --name postgres \
+    postgres
 $ docker-compose up -d
 ```
 Then:   
