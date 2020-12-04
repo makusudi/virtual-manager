@@ -1,6 +1,7 @@
 from typing import Optional
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from vm import vm_app
 
 
 app = FastAPI()
@@ -14,6 +15,4 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-async def root(username: Optional[str] = None):
-    return {"message": f"Tou provided username {username}"}
+app.mount('/vm', vm_app)
