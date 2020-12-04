@@ -17,16 +17,16 @@ cors = aiohttp_cors.setup(app, defaults={
 frontend_routes = web.RouteTableDef()
 
 
-@frontend_routes.get('/')
-@frontend_routes.get('/{path:.*}')
-async def test(request):
-    with open('dist/index.html') as file:
-        return Response(text=file.read(), content_type='text/html')
+# @frontend_routes.get('/')
+# @frontend_routes.get('/{path:.*}')
+# async def test(request):
+#     with open('dist/index.html') as file:
+#         return Response(text=file.read(), content_type='text/html')
 
 
-app.router.add_static('/_nuxt', path='dist/_nuxt')
+# app.router.add_static('/_nuxt', path='dist/_nuxt')
 app.add_routes(api_routes)
-app.add_routes(frontend_routes)
+# app.add_routes(frontend_routes)
 
 for route in list(app.router.routes()):
     cors.add(route)
