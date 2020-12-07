@@ -110,8 +110,15 @@ class VirtualMachine(Base):
         return self
 
     def to_dict(self) -> dict:
-        return {'name': self.name, 'description': self.description, 'cpu': self.cpu,
-                'hdd': self.hdd, 'ram': self.ram, 'owner': self.owner}
+        return {
+          'id': self.id,
+          'name': self.name,
+          'description': self.description,
+          'cpu': self.cpu,
+          'hdd': self.hdd,
+          'ram': self.ram,
+          'owner': self.owner
+        }
 
 
 def drop_all():

@@ -15,4 +15,9 @@ app.add_middleware(
 )
 
 
-app.mount('/vm', vm_app)
+app.mount('/api/vm', vm_app)
+
+
+@app.get('/')
+def frontend():
+    pass
