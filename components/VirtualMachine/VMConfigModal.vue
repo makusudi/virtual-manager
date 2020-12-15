@@ -95,9 +95,9 @@ export default {
         payload.hdd = this.newHDDValue
       }
       axios({
-        method: 'POST',
+        method: 'PUT',
         headers: { Authorization: 'token', 'Content-Type': 'application/json' },
-        url: `http://${window.location.hostname}:8080/api/change_vm`,
+        url: `http://${window.location.hostname}:8000/api/vm`,
         data: payload
       }).then((response) => {
         setTimeout(() => {

@@ -50,11 +50,18 @@ export default {
         return
       }
       this.confirmLoading = true
-      const payload = { name: this.vm.name, description: this.newDescription }
+      const payload = {
+        name: this.vm.name,
+        description: this.newDescription,
+        hdd: this.vm.hdd,
+        cpu: this.vm.cpu,
+        ram: this.vm.ram,
+        owner: 1
+      }
       axios({
-        method: 'POST',
+        method: 'PUT',
         headers: { Authorization: 'token', 'Content-Type': 'application/json' },
-        url: `http://${window.location.hostname}:8080/api/change_vm`,
+        url: `http://${window.location.hostname}:8000/api/vm`,
         data: payload
       }).then((response) => {
         setTimeout(() => {

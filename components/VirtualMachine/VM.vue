@@ -67,12 +67,12 @@ export default {
     confirmDeleting () {
       this.$message.warning(`Trying to delete ${this.vmObj.name}...`)
       axios({
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           Authorization: 'token',
           'Content-Type': 'application/json'
         },
-        url: `http://${window.location.hostname}:8080/api/delete_vm`,
+        url: `http://${window.location.hostname}:8000/api/vm`,
         data: { name: this.vmObj.name }
       }).then((response) => {
         this.$message.success(`Virtual machine ${this.vmObj.name} has been successfully deleted from your scope`)

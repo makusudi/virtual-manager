@@ -76,9 +76,9 @@ export default {
     axios({
       method: 'GET',
       headers: { Authorization: 'token', 'Content-Type': 'application/json' },
-      url: `http://${window.location.hostname}:8080/api/my_vms?owner=admin`
+      url: `http://${window.location.hostname}:8000/api/vm/?owner=admin`
     }).then((response) => {
-      this.vmArray = response.data.result
+      this.vmArray = response.data
       setTimeout(() => {
         this.apiResponse = true
       }, 2000)
