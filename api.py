@@ -6,7 +6,7 @@ from models import VM, Users
 api_routes = web.RouteTableDef()
 
 
-@api_routes.get('/api/my_vms')
+@api_routes.get('/api/vm')
 async def my_vms(request: BaseRequest):
     owner: str or None = request.query.get('owner')
     if not owner:
@@ -23,7 +23,7 @@ async def my_vms(request: BaseRequest):
     return web.json_response({'result': sorted([await x.to_dict() for x in vms], key=lambda x: x['name'])})
 
 
-@api_routes.post('/api/new_vm')
+@api_routes.post('/api/vm')
 async def new_vm(request: BaseRequest):
     json_req: dict or None = await request.json()
     if not json_req:
@@ -42,7 +42,7 @@ async def new_vm(request: BaseRequest):
     return web.json_response({'result': 'success'})
 
 
-@api_routes.post('/api/change_vm')
+@api_routes.patch('/api/vm')
 async def new_vm(request: BaseRequest):
     json_req: dict or None = await request.json()
     if not json_req:
@@ -60,7 +60,7 @@ async def new_vm(request: BaseRequest):
     return web.json_response({'result': 'success'})
 
 
-@api_routes.post('/api/delete_vm')
+@api_routes.delete('/api/vm')
 async def new_vm(request: BaseRequest):
     json_req: dict or None = await request.json()
     if not json_req:
