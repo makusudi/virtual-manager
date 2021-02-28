@@ -1,7 +1,6 @@
 FROM ubuntu:20.04
 COPY . /opt/virtual_manager
 WORKDIR /opt/virtual_manager
-ENV DB_HOST='130.193.45.235'
 RUN env | grep DB_HOST
 ENV TZ=Europe/Moscow
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

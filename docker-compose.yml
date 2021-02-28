@@ -1,5 +1,13 @@
 version: '3.5'
 services:
+  database:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
   app:
     build: .
     ports:
@@ -8,4 +16,6 @@ services:
     restart: always
     network_mode: bridge
     environment:
-      DB_HOST: '130.193.45.235'
+      DB_HOST: '127.0.0.1'
+    depends_on:
+      - database
